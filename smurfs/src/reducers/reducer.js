@@ -1,9 +1,10 @@
-import { FETCH_SMURFS_START, FETCH_SMURFS_SUCCESS, FETCH_SMURFS_FAIL } from '../reducers/actions';
+import { FETCH_SMURFS_START, FETCH_SMURFS_SUCCESS, FETCH_SMURFS_FAIL, ADDED_SMURF_SUCCESS } from '../reducers/actions';
 
 const initialState = {
-	smurfs     : [],
-	error      : '',
-	isFetching : false,
+	smurfs      : [],
+	isFetching  : false,
+	addingSmurf : false,
+	error       : '',
 };
 
 function reducer(state = initialState, action) {
@@ -27,6 +28,8 @@ function reducer(state = initialState, action) {
 				...state,
 				error : action.payload,
 			};
+		case ADDED_SMURF_SUCCESS:
+			return { ...state, smurfs: [ ...action.payload ] };
 		default:
 			return state;
 	}

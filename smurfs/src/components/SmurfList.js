@@ -9,7 +9,12 @@ const SmurfList = props => {
 	};
 	return (
 		<div>
-			<div>{props.smurfs.map(smurfs => <h1 key={smurfs.url}>{smurfs.name}</h1>)}</div>
+			<div>{props.smurfs.map(smurfs => <>
+                <h1 key={smurfs.url}>Name: {smurfs.name}</h1>
+                <h5 key={smurfs.url}>Age: {smurfs.age}</h5>
+                <h5 key={smurfs.url}>Height: {smurfs.height}</h5>
+                </>
+                )}</div>
 			{props.error && <p className='error'>{props.error}</p>}
 			<button onClick={fetchSmurfs}>COLLECT THE SMURFS</button>
 		</div>
