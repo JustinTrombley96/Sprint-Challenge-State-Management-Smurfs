@@ -1,6 +1,8 @@
 import React from 'react';
 import { getSmurfs } from '../reducers/actions';
 import { connect } from 'react-redux';
+import {Button} from 'shards-react'
+
 
 const SmurfList = props => {
 	const fetchSmurfs = e => {
@@ -16,7 +18,7 @@ const SmurfList = props => {
                 </>
                 )}</div>
 			{props.error && <p className='error'>{props.error}</p>}
-			<button onClick={fetchSmurfs}>COLLECT THE SMURFS</button>
+			<Button pill theme="danger"onClick={fetchSmurfs}>COLLECT THE SMURFS</Button>
 		</div>
 	);
 };

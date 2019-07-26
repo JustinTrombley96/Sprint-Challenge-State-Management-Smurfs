@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addSmurf } from '../reducers/actions';
+import {Button, FormInput, Form} from 'shards-react'
+import './App.css';
 
-class Form extends Component {
+
+
+class SmurfForm extends Component {
 	state = {
 		name   : '',
 		age    : '',
@@ -27,17 +31,19 @@ class Form extends Component {
 	render() {
 		return (
 			<div>
-				<form onSubmit={this.handleAddSmurf}>
-					<input onChange={this.handleInputChange} placeholder='name' value={this.state.name} name='name' />
-					<input onChange={this.handleInputChange} placeholder='age' value={this.state.age} name='age' />
-					<input
+				<Form onSubmit={this.handleAddSmurf}>
+					<FormInput onChange={this.handleInputChange} placeholder='name' value={this.state.name} name='name' />
+					<FormInput onChange={this.handleInputChange} placeholder='age' value={this.state.age} name='age' />
+					<FormInput
 						onChange={this.handleInputChange}
 						placeholder='height'
 						value={this.state.height}
 						name='height'
 					/>
-					<button type='submit'>Add to the village</button>
-				</form>
+					<Button pill theme='danger' type='submit'>
+						Add to the village
+					</Button>
+				</Form>
 			</div>
 		);
 	}
@@ -47,4 +53,4 @@ const mapStateToProps = state => ({
 	smurfs : state.smurfs,
 });
 
-export default connect(mapStateToProps, { addSmurf })(Form);
+export default connect(mapStateToProps, { addSmurf })(SmurfForm);
