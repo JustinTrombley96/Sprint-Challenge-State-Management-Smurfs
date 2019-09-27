@@ -14,7 +14,7 @@ function reducer(state = initialState, action) {
 			return {
 				...state,
 				isFetching : true,
-				error      : 'Your action file is missing. Securet the file!',
+				error      : 'Your action file is missing. Secure the file!',
 			};
 		case FETCH_SMURFS_SUCCESS:
 			return {

@@ -12,9 +12,9 @@ const SmurfList = props => {
 	return (
 		<div>
 			<div>{props.smurfs.map(smurfs => <>
-                <h1 key={smurfs.url}>Name: {smurfs.name}</h1>
-                <h5 key={smurfs.url}>Age: {smurfs.age}</h5>
-                <h5 key={smurfs.url}>Height: {smurfs.height}</h5>
+                <h1 key={Date.now()}>Name: {smurfs.name}</h1>
+                <h5 key={Date.now()}>Age: {smurfs.age}</h5>
+                <h5 key={Date.now()}>Height: {smurfs.height}</h5>
                 </>
                 )}</div>
 			{props.error && <p className='error'>{props.error}</p>}
